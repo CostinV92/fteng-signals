@@ -11,3 +11,10 @@ set_target_properties(Signals PROPERTIES
 	CXX_STANDARD_REQUIRED ON
 	CXX_EXTENSIONS OFF
 )
+
+# Create header-only library target
+add_library(fteng-signals INTERFACE)
+target_include_directories(fteng-signals INTERFACE
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>
+    $<INSTALL_INTERFACE:include>
+)
